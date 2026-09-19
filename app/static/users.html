@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Users &amp; Roles — Performance Management System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/pms.css">
+<style>
+  .pms-header-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .pms-header-sub { font-size: 13px; color: var(--pms-text-muted); margin-bottom: 22px; }
+</style>
+</head>
+<body>
+
+<div class="pms-shell">
+  <div class="pms-sidebar" data-pms-sidebar></div>
+
+  <div class="pms-main">
+    <div class="pms-topbar">
+      <div style="font-size:13px;font-weight:600;color:var(--pms-text-soft);">Users &amp; Roles</div>
+      <div style="display:flex;align-items:center;gap:16px;" data-pms-topbar-user></div>
+    </div>
+
+    <div class="pms-content">
+      <div class="pms-header-title">Users &amp; Roles</div>
+      <div class="pms-header-sub" id="pms-header-sub">See every login, its assigned role(s), and change or reset them.</div>
+
+      <div id="pms-loading">
+        <div class="pms-skeleton" style="height:40px;margin-bottom:16px;"></div>
+        <div class="pms-skeleton" style="height:140px;margin-bottom:16px;"></div>
+        <div class="pms-skeleton" style="height:140px;"></div>
+      </div>
+
+      <div id="pms-no-access" class="pms-empty pms-hide">You don't have access to user administration.</div>
+
+      <div id="pms-body" class="pms-hide">
+        <div class="pms-card" style="margin-bottom:16px;">
+          <div id="pms-create-btn-wrap"></div>
+          <div id="pms-create-form-wrap"></div>
+        </div>
+
+        <div id="pms-error" class="pms-error pms-hide"></div>
+        <div id="pms-empty" class="pms-empty pms-hide">No users yet.</div>
+        <div id="pms-list" class="pms-card pms-hide"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/roles.js"></script>
+<script src="js/users.js"></script>
+</body>
+</html>

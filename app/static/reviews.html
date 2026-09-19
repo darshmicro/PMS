@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reviews & Approvals — Performance Management System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/pms.css">
+<style>
+  .pms-header-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .pms-header-sub { font-size: 13px; color: var(--pms-text-muted); margin-bottom: 22px; }
+  .pms-record-card { margin-bottom: 16px; }
+  .pms-record-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 10px; }
+  .pms-record-title { font-size: 15px; font-weight: 700; }
+  .pms-record-sub { font-size: 12px; color: var(--pms-text-faint); margin-top: 2px; }
+  .pms-mr-kpi { border-top: 1px solid var(--pms-border-soft); padding: 12px 0; }
+  .pms-mr-kpi:first-of-type { border-top: none; }
+</style>
+</head>
+<body>
+
+<div class="pms-shell">
+  <div class="pms-sidebar" data-pms-sidebar></div>
+
+  <div class="pms-main">
+    <div class="pms-topbar">
+      <div style="font-size:13px;font-weight:600;color:var(--pms-text-soft);">Reviews & Approvals</div>
+      <div style="display:flex;align-items:center;gap:16px;" data-pms-topbar-user></div>
+    </div>
+
+    <div class="pms-content">
+      <div class="pms-header-title">Reviews & Approvals</div>
+      <div class="pms-header-sub" id="pms-header-sub">Records awaiting your review or approval.</div>
+
+      <div class="pms-tab-row pms-hide" id="pms-tabs"></div>
+
+      <div id="pms-loading">
+        <div class="pms-skeleton" style="height:140px;margin-bottom:16px;"></div>
+        <div class="pms-skeleton" style="height:140px;"></div>
+      </div>
+
+      <div id="pms-error" class="pms-error pms-hide"></div>
+      <div id="pms-no-access" class="pms-empty pms-hide">You don't hold a review or approval role in this workflow.</div>
+      <div id="pms-empty" class="pms-empty pms-hide">Nothing is currently awaiting your action at this stage.</div>
+      <div id="pms-records" class="pms-hide"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/roles.js"></script>
+<script src="js/reviews.js"></script>
+</body>
+</html>

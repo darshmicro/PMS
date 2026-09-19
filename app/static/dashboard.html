@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — Performance Management System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/pms.css">
+<style>
+  .pms-header-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 14px; }
+  .pms-header-title { font-size: 22px; font-weight: 700; }
+  .pms-header-sub { font-size: 13px; color: var(--pms-text-muted); margin-top: 4px; }
+  .pms-section-title { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+  .pms-section { margin-top: 26px; }
+  .pms-status-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--pms-border-soft); font-size: 12.5px; }
+  .pms-status-row:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<div class="pms-shell">
+  <div class="pms-sidebar" data-pms-sidebar></div>
+
+  <div class="pms-main">
+    <div class="pms-topbar">
+      <div style="font-size:13px;font-weight:600;color:var(--pms-text-soft);">Dashboard</div>
+      <div style="display:flex;align-items:center;gap:16px;" data-pms-topbar-user></div>
+    </div>
+
+    <div class="pms-content">
+      <div class="pms-header-row">
+        <div>
+          <div class="pms-header-title" id="pms-header-title">Overview</div>
+          <div class="pms-header-sub" id="pms-header-sub">Loading current cycle status&hellip;</div>
+        </div>
+      </div>
+
+      <div id="pms-loading" class="pms-stat-grid">
+        <div class="pms-skeleton" style="height:110px;"></div>
+        <div class="pms-skeleton" style="height:110px;"></div>
+        <div class="pms-skeleton" style="height:110px;"></div>
+        <div class="pms-skeleton" style="height:110px;"></div>
+      </div>
+
+      <div id="pms-error" class="pms-error pms-hide"></div>
+
+      <div id="pms-body" class="pms-hide">
+        <div class="pms-stat-grid" id="pms-stat-grid"></div>
+
+        <div class="pms-section" id="pms-status-section">
+          <div class="pms-card">
+            <div class="pms-section-title">Appraisal Status Breakdown</div>
+            <div id="pms-status-list"></div>
+          </div>
+        </div>
+
+        <div class="pms-section" id="pms-rating-section">
+          <div class="pms-card">
+            <div class="pms-section-title">Rating Distribution</div>
+            <div id="pms-rating-list"></div>
+          </div>
+        </div>
+
+        <div class="pms-section pms-hide" id="pms-audit-section">
+          <div class="pms-card">
+            <div class="pms-section-title">Recent Audit Activity</div>
+            <div id="pms-audit-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/roles.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

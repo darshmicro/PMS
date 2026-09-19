@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — Performance Management System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/pms.css">
+<style>
+  body { display: flex; }
+  .pms-login-brand {
+    width: 46%; min-width: 420px; min-height: 100vh; box-sizing: border-box; padding: 56px;
+    display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--pms-border-soft);
+  }
+  .pms-login-right { flex-grow: 1; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .pms-login-card { width: 400px; max-width: 100%; background: var(--pms-surface); border: 1px solid var(--pms-border); border-radius: 16px; padding: 36px; box-sizing: border-box; }
+  .pms-tabbar { display: flex; gap: 4px; background: var(--pms-surface-2); border: 1px solid var(--pms-border); border-radius: 10px; padding: 4px; margin-bottom: 22px; }
+  .pms-tabbtn { flex: 1; cursor: pointer; border: none; background: transparent; font-size: 13px; font-weight: 600; padding: 10px 6px; color: var(--pms-text-label); border-radius: 7px; }
+  .pms-tabbtn.active { background: #1b2033; color: var(--pms-text); }
+  .pms-hide { display: none !important; }
+</style>
+</head>
+<body>
+
+<div class="pms-login-brand">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="width:34px;height:34px;border-radius:9px;background:var(--pms-indigo);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a1 1 0 0 1 1-1h8l7 7v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" stroke="#0a0e15" stroke-width="1.8" stroke-linejoin="round"/><path d="M13 4v6h7" stroke="#0a0e15" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </div>
+    <div>
+      <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;">Performance MS</div>
+      <div style="font-size:11px;color:var(--pms-text-faint);letter-spacing:.06em;">INTRANET &middot; PLANT OPERATIONS</div>
+    </div>
+  </div>
+
+  <div>
+    <h1 style="font-size:38px;line-height:1.15;font-weight:700;max-width:460px;">Appraisals, calibration &amp; approvals in one place.</h1>
+    <p style="font-size:15px;color:var(--pms-text-muted);max-width:420px;line-height:1.6;margin-top:16px;">Self-assessment through MD final approval &mdash; scored, audited and reported, end to end.</p>
+  </div>
+
+  <div style="font-size:12px;color:#3f4759;">&copy; 2026 Performance Management System</div>
+</div>
+
+<div class="pms-login-right">
+  <div class="pms-login-card">
+    <h2 style="font-size:21px;font-weight:700;margin-bottom:6px;">Sign in</h2>
+    <p style="font-size:13px;color:var(--pms-text-muted);margin-bottom:24px;">Use your company Windows account, or a local demo login.</p>
+
+    <div class="pms-tabbar">
+      <button type="button" class="pms-tabbtn active" id="pms-tab-windows">Windows / AD</button>
+      <button type="button" class="pms-tabbtn" id="pms-tab-demo">Local demo</button>
+    </div>
+
+    <div id="pms-panel-windows">
+      <button type="button" class="pms-btn-primary" style="width:100%;justify-content:center;" id="pms-continue-windows">Continue with Windows account</button>
+      <p style="font-size:11.5px;color:var(--pms-text-faint);margin-top:10px;">Requires IIS Windows Integrated Authentication in front of this app (AUTH_MODE=iis_forwarded).</p>
+    </div>
+
+    <form id="pms-panel-demo" class="pms-hide">
+      <label class="pms-label" for="pms-user">Username</label>
+      <input id="pms-user" class="pms-field" type="text" placeholder="demoadmin" style="margin-bottom:16px;" autocomplete="username">
+      <label class="pms-label" for="pms-pass">Password</label>
+      <input id="pms-pass" class="pms-field" type="password" placeholder="Password" style="margin-bottom:18px;" autocomplete="current-password">
+      <button type="submit" class="pms-btn-primary" style="width:100%;justify-content:center;">Sign in</button>
+    </form>
+
+    <div id="pms-login-error" class="pms-error pms-hide" style="margin-top:16px;"></div>
+
+    <div style="display:flex;align-items:center;gap:10px;margin:22px 0;">
+      <div style="flex-grow:1;height:1px;background:var(--pms-border);"></div>
+      <span style="font-size:11px;color:#3f4759;">SECURE INTRANET SESSION</span>
+      <div style="flex-grow:1;height:1px;background:var(--pms-border);"></div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;gap:9px;background:var(--pms-surface-2);border:1px solid var(--pms-border);border-radius:10px;padding:12px 14px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="margin-top:2px;flex-shrink:0;"><rect x="5" y="11" width="14" height="9" rx="2" stroke="#eab155" stroke-width="1.8"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="#eab155" stroke-width="1.8"/></svg>
+      <span style="font-size:12px;color:var(--pms-text-muted);line-height:1.5;">Every login and permission change is written to the audit trail.</span>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

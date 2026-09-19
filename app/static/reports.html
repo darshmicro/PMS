@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reports & Exports — Performance Management System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/pms.css">
+<style>
+  .pms-header-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .pms-header-sub { font-size: 13px; color: var(--pms-text-muted); margin-bottom: 24px; }
+  .pms-section-title { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+  .pms-section { margin-top: 26px; }
+</style>
+</head>
+<body>
+
+<div class="pms-shell">
+  <div class="pms-sidebar" data-pms-sidebar></div>
+
+  <div class="pms-main">
+    <div class="pms-topbar">
+      <div style="font-size:13px;font-weight:600;color:var(--pms-text-soft);">Reports & Exports</div>
+      <div style="display:flex;align-items:center;gap:16px;" data-pms-topbar-user></div>
+    </div>
+
+    <div class="pms-content">
+      <div class="pms-header-title">Reports & Exports</div>
+      <div class="pms-header-sub" id="pms-header-sub">Consolidated appraisal status and the full export catalog, scoped to your role.</div>
+
+      <div id="pms-loading">
+        <div class="pms-skeleton" style="height:220px;margin-bottom:16px;"></div>
+        <div class="pms-skeleton" style="height:220px;"></div>
+      </div>
+
+      <div id="pms-error" class="pms-error pms-hide"></div>
+
+      <div id="pms-body" class="pms-hide">
+        <div class="pms-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+            <div class="pms-section-title" style="margin-bottom:0;">Consolidated Appraisal Status</div>
+            <div style="display:flex;gap:8px;">
+              <a class="pms-btn-ghost" id="pms-dl-csv" href="#">CSV</a>
+              <a class="pms-btn-ghost" id="pms-dl-xlsx" href="#">Excel</a>
+              <a class="pms-btn-ghost" id="pms-dl-pdf" href="#">PDF</a>
+            </div>
+          </div>
+          <div class="pms-form-grid" style="margin-top:0;margin-bottom:6px;">
+            <div>
+              <label class="pms-label">Employee</label>
+              <select class="pms-field" id="pms-filter-employee"><option value="">All employees in scope</option></select>
+            </div>
+            <div>
+              <label class="pms-label">Cycle</label>
+              <select class="pms-field" id="pms-filter-cycle"><option value="">All cycles</option></select>
+            </div>
+            <div>
+              <label class="pms-label">Year</label>
+              <select class="pms-field" id="pms-filter-year"><option value="">All years</option></select>
+            </div>
+            <div style="display:flex;align-items:flex-end;">
+              <button class="pms-btn-ghost" id="pms-filter-clear" style="width:100%;justify-content:center;">Clear filters</button>
+            </div>
+          </div>
+          <div class="pms-inline-note" id="pms-status-scope" style="margin-bottom:10px;"></div>
+          <div style="overflow-x:auto;">
+            <table class="pms-table" id="pms-status-table"></table>
+          </div>
+          <div class="pms-empty pms-hide" id="pms-status-empty">No appraisal records in your scope yet.</div>
+        </div>
+
+        <div class="pms-section">
+          <div class="pms-card">
+            <div class="pms-section-title">Export Catalog</div>
+            <div id="pms-catalog-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/roles.js"></script>
+<script src="js/reports.js"></script>
+</body>
+</html>
